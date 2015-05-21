@@ -1,5 +1,28 @@
 $(document).ready(function(){
+  var stepper = true;
   window.dancers = [];
+  $('.topbar').on("click", ".button1", function(){
+    console.log("clicked:", this);
+    callMakeBlinkyDancer();
+  });
+
+  // make a dancer with a random position
+  var callMakeBlinkyDancer = function (){
+    var dancer = makeBlinkyDancer(
+      $("body").height(),
+      $("body").width(),
+      Math.random() * 1000
+    );
+    $('body').append(dancer.$node);
+  };
+
+  var makeBlinkyDancer = function(top, left, timeBetweenSteps){
+    return new BlinkyDancer(top, left, timeBetweenSteps);
+  }
+
+  $('.topbar').on("click", ".button3", function(){
+    makeCircle();
+  });
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -15,19 +38,8 @@ $(document).ready(function(){
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
-    // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
-
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
-    $('body').append(dancer.$node);
   });
 });
 

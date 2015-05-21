@@ -5,11 +5,12 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  overflow:hidden;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .button {
   padding:5px 12px;
   float:right;
 }
@@ -24,4 +25,125 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+#dancers {
+  visibility:hidden;
+}
+
+/* dancer1 */
+
+@keyframes seq31 {
+  from {
+    height: 180px;
+    margin-top: -90px;
+  }
+  to {
+    height: 0;
+    margin-top: 0;
+  }
+}
+
+@keyframes seq32 {
+  from {
+    height: 160px;
+    margin-top: -80px;
+  }
+  to {
+    height: 0;
+    margin-top: 0;
+  }
+}
+
+@keyframes seq33 {
+  from {
+    height: 140px;
+    margin-top: -70px;
+  }
+  to {
+    height: 0;
+    margin-top: 0;
+  }
+}
+
+@keyframes seq34 {
+  from {
+    height: 120px;
+    margin-top: -60px;
+  }
+  to {
+    height: 0;
+    margin-top: 0;
+  }
+}
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+.o1 {
+  transform: rotate(45deg);
+}
+.o2 {
+  transform: rotate(90deg);
+}
+.o3 {
+  transform: rotate(135deg);
+}
+.o4 {
+  transform: rotate(180deg);
+}
+.spinner .o1 {
+  height: $h-(20);
+  width: 180px;
+  margin-left: -90px;
+  animation-name: seq31;
+  animation-timing-function: linear;
+}
+.spinner .o2 {
+  height: $h-(40);
+  width: 160px;
+  margin-left: -80px;
+  animation-name: seq32;
+  animation-timing-function: linear;
+}
+.spinner .o3 {
+  height: $h-(60);
+  width: 140px;
+  margin-left: -70px;
+  animation-name: seq33;
+  animation-timing-function: linear;
+}
+.spinner .o4 {
+  height: $h-(80);
+  width: 120px;
+  margin-left: -60px;
+  animation-name: seq34;
+  animation-timing-function: linear;
+}
+.spinner .o1 {
+  animation-delay: 0.25s;
+  animation-timing-function: ease-in;
+}
+.spinner .o2 {
+  animation-delay: 0.5s;
+  animation-timing-function: ease-in;
+}
+.spinner .o3 {
+  animation-delay: 0.75s;
+  animation-timing-function: ease-in;
+}
+.spinner .o4 {
+  animation-delay: 1s;
+  animation-timing-function: ease-in;
 }
