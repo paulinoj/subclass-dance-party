@@ -1,12 +1,16 @@
-// Creates and returns a new dancer object that can step
+ // Creates and returns a new dancer object that can step
 var Dancer = function(height, width, timeBetweenSteps){
 console.log("board: ", height, width);
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="dancer"><span class="infos"></span></span>');
+
   this.timeBetweenSteps = timeBetweenSteps;
+  this.$node.children(".infos").html(timeBetweenSteps);
   this.step();
+  this.speed = 50;
   this.height = height;
   this.width = width;
+  this.timer;
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
@@ -16,6 +20,7 @@ console.log("board: ", height, width);
     top: height * Math.random(),
     left: width * Math.random()
   });
+  dancers.push(this);
 };
 
 
@@ -24,7 +29,8 @@ Dancer.prototype.step = function(){
   // it just schedules the next step
   //
   //
-
+  console.log("step: ", this.$node);
+  this.$node.dequeue();
   if (this.$node.position().left > this.width - 200) {
     this.hdir = "-";
   }
@@ -44,8 +50,8 @@ Dancer.prototype.step = function(){
   this.$node.animate({
     "left" : this.hdir + "=" + h + "px",
     "top" : this.vdir + "=" + v + "px"
-  }, "easeInOut" );
+  }, this.speed, "linear" );
   if (stepper) {
-    window.setTimeout(this.step.bind(this), this.timeBetweenSteps);
+    this.timer = setTimeout(this.step.bind(this), this.timeBetweenSteps);
   }
 };

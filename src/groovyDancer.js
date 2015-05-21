@@ -1,18 +1,17 @@
 
-var GroovyDancer = function(top, left, timeBetweenSteps){
+var GroovyDancer = function(height, width, timeBetweenSteps){
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
-  Dancer.call(this, top, left, timeBetweenSteps);
+  Dancer.call(this, height, width, timeBetweenSteps);
+  var $dancer2 = $('#dancers .dancer2');
+  this.speed = 400;
+  $dancer2.clone().appendTo(this.$node).show();
+  this.$node.addClass("groovy");
 };
 GroovyDancer.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
 //  this.oldStep();
   Dancer.prototype.step.call(this);
-
-  console.log("there: ", this.$node);
-  // toggle() is a jQuery method to show/hide the <span> tag.
-  // See http://api.jquery.com/category/effects/ for this and
-  // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.toggle();
 };
-//GroovyDancer.prototype.oldStep = Dancer.prototype.step;
+//BlinkyDancer.prototype.oldStep = Dancer.prototype.step;
+

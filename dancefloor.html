@@ -4,16 +4,22 @@
     <title>Object Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/groovyDancer.js"></script>
     <script src="src/makeCircle.js"></script>
   </head>
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="button button1">add a blinky dancer</a>
-      <a href="#" class="button button2">stepper</a>
-      <a href="#" class="button button3">circle</a>
+      <a href="#" class="button button1">Blinky</a>
+      <a href="#" class="button button2">Groovy</a>
+      <a href="#" class="button button3">stepper</a>
+      <a href="#" class="button button4">Circle</a>
+      <a href="#" class="button button5">Step</a>
+    </div>
+    <div class="aquarium">
     </div>
     <div id = 'dancers'>
       <div class ='dancer1'>
@@ -24,6 +30,15 @@
           <div class="orbit o1"></div>
         </div>
       </div>
+
+      <div class="dancer2 animate">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"> </div>
+      </div>
+
+
+
     </div>
     <script src="src/init.js"></script>
   </body>
