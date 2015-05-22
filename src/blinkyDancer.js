@@ -8,10 +8,5 @@ var BlinkyDancer = function(height, width, timeBetweenSteps){
   $dancer1.clone().appendTo(this.$node).show();
   this.$node.addClass("blinky");
 };
-BlinkyDancer.prototype.step = function(){
-  // call the old version of step at the beginning of any call to this new version of step
-//  this.oldStep();
-  Dancer.prototype.step.call(this);
-};
-//BlinkyDancer.prototype.oldStep = Dancer.prototype.step;
-
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
+BlinkyDancer.prototype.constructor = BlinkyDancer;
